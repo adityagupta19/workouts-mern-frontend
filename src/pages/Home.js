@@ -11,12 +11,13 @@ const Home = () => {
 			const response = await fetch("/workout");
 			const json = await response.json();
 
-			if (response.ok()) {
+			if (response.ok) {
 				dispatch({ type: "SET_WORKOUTS", payload: json });
+				console.log("nice")
 			}
 		};
 		fetchWorkouts();
-	}, [dispatch]);
+	}, [workouts,dispatch]);
 
 	return (
 		<div className="home">

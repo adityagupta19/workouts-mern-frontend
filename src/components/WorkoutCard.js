@@ -1,10 +1,11 @@
+
 import { useWorkoutContext } from "../hooks/useWorkoutsContext";
 
 const WorkoutCard = ({ workout }) => {
 	const { dispatch } = useWorkoutContext();
 
 	const handleclick = async () => {
-		const response = await fetch("/workout" + workout._id, {
+		const response = await fetch("/workout/" + workout._id, {
 			method: "DELETE",
 		});
 		const json = response.json();
@@ -13,6 +14,7 @@ const WorkoutCard = ({ workout }) => {
 			dispatch({ type: "DELETE_WORKOUT", payload: json });
 		}
 	};
+	
 
 	return (
 		<div className="workout-details">
